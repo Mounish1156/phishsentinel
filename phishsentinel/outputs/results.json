@@ -1,0 +1,304 @@
+{
+  "dedup": {
+    "before": 700,
+    "after": 598,
+    "removed": 102,
+    "threshold": 0.9
+  },
+  "split": {
+    "train": 351,
+    "holdout": 247,
+    "holdout_campaigns": [
+      "P2_vague_favour",
+      "P3_parcel_sms",
+      "L2_payroll_notice",
+      "L4_benefits_deadline"
+    ],
+    "train_campaigns": [
+      "L1_password_reset",
+      "L3_it_maintenance",
+      "L5_courier_real",
+      "P1_credential_harvest",
+      "P4_invoice_giftcard",
+      "P5_mfa_helpdesk"
+    ],
+    "max_train_test_similarity": 0.19813935688903464,
+    "pairs_over_threshold": 0
+  },
+  "settings": {
+    "seed": 42,
+    "abstain_band": [
+      0.35,
+      0.65
+    ],
+    "dedup_threshold": 0.9
+  },
+  "models": {
+    "Rules": {
+      "macro_f1": 0.9431623931623931,
+      "precision": 1.0,
+      "recall": 0.8870967741935484,
+      "fpr_all_legit": 0.0,
+      "fpr_legit_urgent": 0.0,
+      "abstain_rate": 0.3157894736842105,
+      "acc_on_answered": 1.0,
+      "confusion": {
+        "tn": 123,
+        "fp": 0,
+        "fn": 0,
+        "tp": 46,
+        "abstain": 78
+      },
+      "hist": {
+        "phishing": [
+          0,
+          0,
+          0,
+          0,
+          14,
+          64,
+          0,
+          37,
+          9,
+          0
+        ],
+        "legitimate": [
+          88,
+          24,
+          8,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "drift": {
+        "Defang wording ([.] to ' dot ')": {
+          "mean_abs_shift": 0.18465968422457707,
+          "decision_flip_rate": 0.5375
+        },
+        "Strip punctuation": {
+          "mean_abs_shift": 0.18465968422457707,
+          "decision_flip_rate": 0.5375
+        },
+        "Extra exclamation marks": {
+          "mean_abs_shift": 0.15659324311814996,
+          "decision_flip_rate": 0.5625
+        },
+        "UPPERCASE": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        },
+        "Leetspeak keywords": {
+          "mean_abs_shift": 0.014345120486189494,
+          "decision_flip_rate": 0.0
+        },
+        "Pad with benign sentence": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        }
+      }
+    },
+    "TF-IDF + LogReg": {
+      "macro_f1": 0.7708247422680412,
+      "precision": 1.0,
+      "recall": 0.5645161290322581,
+      "fpr_all_legit": 0.0,
+      "fpr_legit_urgent": 0.0,
+      "abstain_rate": 0.46153846153846156,
+      "acc_on_answered": 0.9849624060150376,
+      "confusion": {
+        "tn": 123,
+        "fp": 0,
+        "fn": 2,
+        "tp": 8,
+        "abstain": 114
+      },
+      "hist": {
+        "phishing": [
+          0,
+          0,
+          0,
+          6,
+          48,
+          47,
+          20,
+          3,
+          0,
+          0
+        ],
+        "legitimate": [
+          6,
+          92,
+          25,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "drift": {
+        "Defang wording ([.] to ' dot ')": {
+          "mean_abs_shift": 0.0020624549789818236,
+          "decision_flip_rate": 0.0
+        },
+        "Strip punctuation": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        },
+        "Extra exclamation marks": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        },
+        "UPPERCASE": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        },
+        "Leetspeak keywords": {
+          "mean_abs_shift": 0.001832944188698346,
+          "decision_flip_rate": 0.0
+        },
+        "Pad with benign sentence": {
+          "mean_abs_shift": 0.02067381023149476,
+          "decision_flip_rate": 0.025
+        }
+      }
+    },
+    "TF-IDF + RandomForest": {
+      "macro_f1": 0.3324324324324324,
+      "precision": 0.0,
+      "recall": 0.0,
+      "fpr_all_legit": 0.0,
+      "fpr_legit_urgent": 0.0,
+      "abstain_rate": 0.3765182186234818,
+      "acc_on_answered": 0.7987012987012987,
+      "confusion": {
+        "tn": 123,
+        "fp": 0,
+        "fn": 31,
+        "tp": 0,
+        "abstain": 93
+      },
+      "hist": {
+        "phishing": [
+          0,
+          0,
+          0,
+          104,
+          20,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "legitimate": [
+          101,
+          22,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "drift": {
+        "Defang wording ([.] to ' dot ')": {
+          "mean_abs_shift": 0.0017040454002131018,
+          "decision_flip_rate": 0.0
+        },
+        "Strip punctuation": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        },
+        "Extra exclamation marks": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        },
+        "UPPERCASE": {
+          "mean_abs_shift": 0.0,
+          "decision_flip_rate": 0.0
+        },
+        "Leetspeak keywords": {
+          "mean_abs_shift": 0.0029037624378109453,
+          "decision_flip_rate": 0.0
+        },
+        "Pad with benign sentence": {
+          "mean_abs_shift": 0.020279233270713324,
+          "decision_flip_rate": 0.1
+        }
+      }
+    }
+  },
+  "per_campaign": {
+    "L2_payroll_notice": {
+      "mean_risk": 0.1800139989767163,
+      "n": 60,
+      "label": 0
+    },
+    "L4_benefits_deadline": {
+      "mean_risk": 0.13980209114557515,
+      "n": 63,
+      "label": 0
+    },
+    "P2_vague_favour": {
+      "mean_risk": 0.47528694591355247,
+      "n": 60,
+      "label": 1
+    },
+    "P3_parcel_sms": {
+      "mean_risk": 0.5652003132038135,
+      "n": 64,
+      "label": 1
+    }
+  },
+  "random_split_contrast": {
+    "macro_f1": 1.0,
+    "fpr_legit_urgent": 0.0
+  },
+  "class_mix": {
+    "Legitimate": 5,
+    "Phishing": 5
+  },
+  "class_counts": {
+    "Phishing": 304,
+    "Legitimate": 126,
+    "Legitimate urgent": 168
+  },
+  "acceptance": {
+    "AT-01": {
+      "case": "Legitimate password-reset notice",
+      "risk": 0.054359736203101285,
+      "decision": "Low risk",
+      "fpr_legit_urgent_holdout": 0.0
+    },
+    "AT-02": {
+      "case": "Phishing with unfamiliar phrasing (campaign excluded from training)",
+      "risk": 0.5274019245978291,
+      "decision": "Abstain: needs human review",
+      "campaign_mean_risk": 0.47528694591355247
+    },
+    "AT-03": {
+      "case": "Defang / punctuation changes",
+      "base_risk": 0.5274019245978291,
+      "shifts": {
+        "Defang wording ([.] to ' dot ')": 0.5274019245978291,
+        "Strip punctuation": 0.5274019245978291,
+        "Extra exclamation marks": 0.5274019245978291,
+        "UPPERCASE": 0.5274019245978291,
+        "Leetspeak keywords": 0.5274019245978291,
+        "Pad with benign sentence": 0.5099768694222642
+      }
+    }
+  },
+  "seconds": 1.4
+}
